@@ -24,4 +24,4 @@ RUN sh /sh/ipes-init.sh && \
 RUN cp -p /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 # Start run shell
-CMD ["/ipes-start.sh"]
+CMD ["./ipes-start.sh"]
