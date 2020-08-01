@@ -2,6 +2,6 @@
 
 cd /root/ipes/bin
 ./ipes start
-sleep 3
-./check restart
+cd /
+sh ipes-restart.sh
 /bin/bash
