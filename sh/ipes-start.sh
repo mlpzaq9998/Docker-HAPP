@@ -1,6 +1,5 @@
 #!/bin/bash
         
-RES=`/var/run/ipes.pid`
-if [ ! -f $RES ];then
+if [ ! -f "/var/run/ipes.pid" ];then
 	sh /root/ipes/bin/check restart
 fi
