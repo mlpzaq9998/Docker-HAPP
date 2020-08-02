@@ -1,9 +1,7 @@
 #!/bin/sh
-
-PNAME='ipes'        
-RES=`ps -ef | grep "$PNAME" | grep -v "grep" |  wc -l`
-if [ $RES -lt 1 ]
-then
-        cd /root/ipes/bin
-        ./check restart
+        
+RES=`ps -ef | grep "ipes" | grep -v "grep" |  wc -l`
+if [ $RES -lt 1 ];then
+	sh /root/ipes/bin/check restart
+	echo "ipes-start" >> /tmp/ipes-starts
 fi
