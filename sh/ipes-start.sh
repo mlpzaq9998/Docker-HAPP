@@ -2,3 +2,4 @@
 
 cd /root/ipes/bin
 /bin/bash check restart
+/bin/bash
