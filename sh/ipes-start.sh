@@ -1,7 +1,5 @@
 #!/bin/sh
 
 cd /root/ipes/bin
-./ipes start
-cd /
-sh ipes-restart.sh
+./check restart
 /bin/bash
