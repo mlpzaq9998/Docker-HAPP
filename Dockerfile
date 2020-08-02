@@ -8,6 +8,17 @@ ENV SSH_PASSWORD=111
 # Install base tool
 RUN yum -y install dstat wget sysstat
 
+#install cronie
+
+RUN yum -y install cronie
+
+#install crontabs
+
+RUN yum -y install crontabs
+
+RUN sed -i '/session    required   pam_loginuid.so/c\#session    required   pam_loginuid.so' /etc/pam.d/crond
+RUN echo "*/1 * * * * sh /root/ipes/bin/ipes-check" >> /var/spool/cron/root
+
 # Install SSH Service
 RUN yum install -y openssh-server passwd
 RUN sed -ri 's/#UsePAM no/UsePAM no/g' /etc/ssh/sshd_config && \
@@ -23,5 +34,5 @@ RUN sh /sh/ipes-init.sh && \
 # Setting DateTime Zone
 RUN cp -p /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
-# Start run shell
-ENTRYPOINT [ "/root/ipes/bin/check", "restart" ]
+# Start run
+ENTRYPOINT [ "/usr/sbin/init" ]
