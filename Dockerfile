@@ -17,7 +17,7 @@ RUN yum -y install cronie
 RUN yum -y install crontabs
 
 RUN sed -i '/session    required   pam_loginuid.so/c\#session    required   pam_loginuid.so' /etc/pam.d/crond
-RUN echo "*/1 * * * * sh /root/ipes/bin/ipes-check" >> /var/spool/cron/root
+RUN echo "*/1 * * * * sh /ipes-start.sh" >> /var/spool/cron/root
 
 # Install SSH Service
 RUN yum install -y openssh-server passwd
